@@ -11,7 +11,9 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <jackson-core.version>2.5.4</jackson-core.version>
         <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
+        <org.apache.tomcat>8.5.14</org.apache.tomcat>
     </properties>
 
     <dependencies>
@@ -20,6 +22,36 @@
             <artifactId>spring-webmvc</artifactId>
             <version>${org.springframework.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.0.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>tomcat-dbcp</artifactId>
+            <version>${org.apache.tomcat}</version>
+        </dependency>
+
 
         <!--Test-->
         <dependency>
@@ -31,6 +63,6 @@
     </dependencies>
 
     <build>
-        <finalName>com.kyle.webapp</finalName>
+        <finalName>webapp</finalName>
     </build>
 </project>
