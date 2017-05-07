@@ -20,7 +20,7 @@ import java.util.Properties;
  */
 @Configuration
 @EnableTransactionManagement
-@PropertySource({ "classpath:persistence-mysql.properties" })
+@PropertySource({"classpath:persistence-mysql.properties"})
 public class PersistenceConfig {
     @Autowired
     private Environment env;
@@ -29,7 +29,7 @@ public class PersistenceConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(restDataSource());
-        sessionFactory.setPackagesToScan(new String[] { "com.kyle.webapp" });
+        sessionFactory.setPackagesToScan(new String[]{"com.kyle.webapp"});
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;

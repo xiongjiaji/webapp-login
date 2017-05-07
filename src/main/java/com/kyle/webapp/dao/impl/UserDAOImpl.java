@@ -9,8 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 /**
  * Created by Xiong on 2017/5/2.
  */
@@ -28,10 +26,10 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        User user = (User)currentSession.createCriteria(User.class)
-                .add(Restrictions.idEq(id))
+        User user = (User) currentSession.createCriteria(User.class)
+                .add(Restrictions.idEq(String.valueOf(id)))
                 .uniqueResult();
         if (null != user) {
             currentSession.delete(user);
@@ -44,12 +42,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public List<User> get(int id) {
+    @SuppressWarnings(value = {"unchecked"})
+    public User get(long id) {
         Session currentSession = sessionFactory.getCurrentSession();
-        List<User> users = currentSession.createCriteria(User.class)
-                .add(Restrictions.eq("id", id))
-                .list();
-        return users;
+        return (User) currentSession.createCriteria(User.class)
+                .add(Restrictions.idEq(String.valueOf(id)))
+                .uniqueResult();
     }
 
 }

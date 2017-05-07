@@ -11,9 +11,11 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <org.hibernate>5.0.0.Final</org.hibernate>
         <jackson-core.version>2.5.4</jackson-core.version>
         <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
         <org.apache.tomcat>8.5.14</org.apache.tomcat>
+        <mysql.connector.java>5.1.42</mysql.connector.java>
     </properties>
 
     <dependencies>
@@ -43,13 +45,20 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>5.0.0.Final</version>
+            <version>${org.hibernate}</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-dbcp</artifactId>
             <version>${org.apache.tomcat}</version>
+        </dependency>
+
+        <!--MySQL JDBC Driver-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.java}</version>
         </dependency>
 
 
