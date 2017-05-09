@@ -16,6 +16,7 @@
         <org.springframework.version>4.3.7.RELEASE</org.springframework.version>
         <org.apache.tomcat>8.5.14</org.apache.tomcat>
         <mysql.connector.java>5.1.42</mysql.connector.java>
+        <javax.servlet>3.1.0</javax.servlet>
     </properties>
 
     <dependencies>
@@ -61,6 +62,13 @@
             <version>${mysql.connector.java}</version>
         </dependency>
 
+        <!--Most J2EE container has this jar-->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax.servlet}</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!--Test-->
         <dependency>
