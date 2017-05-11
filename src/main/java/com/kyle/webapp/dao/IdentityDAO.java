@@ -15,4 +15,6 @@ public interface IdentityDAO {
 
     Identity get(long id);
 
+    Identity getbyUserId(long userId);
+
 }

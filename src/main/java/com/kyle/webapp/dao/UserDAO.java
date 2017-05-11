@@ -7,12 +7,14 @@ import com.kyle.webapp.entity.User;
  */
 public interface UserDAO {
 
-    void save(User user);
+    User save(User user);
 
     void delete(long id);
 
     void update(User user);
 
     User get(long id);
+
+    User get(String userName);
 
 }

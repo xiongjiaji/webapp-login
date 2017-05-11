@@ -20,9 +20,10 @@ public class UserDAOImpl implements UserDAO {
     SessionFactory sessionFactory;
 
     @Override
-    public void save(User user) {
+    public User save(User user) {
         Session currentSession = sessionFactory.getCurrentSession();
         currentSession.saveOrUpdate(user);
+        return user;
     }
 
     @Override
@@ -47,6 +48,15 @@ public class UserDAOImpl implements UserDAO {
         Session currentSession = sessionFactory.getCurrentSession();
         return (User) currentSession.createCriteria(User.class)
                 .add(Restrictions.idEq(String.valueOf(id)))
+                .uniqueResult();
+    }
+
+    @Override
+    @SuppressWarnings(value = {"unchecked"})
+    public User get(String userName) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return (User) currentSession.createCriteria(User.class)
+                .add(Restrictions.eq("userName", String.valueOf(userName)))
                 .uniqueResult();
     }
 

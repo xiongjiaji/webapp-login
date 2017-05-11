@@ -49,4 +49,12 @@ public class IdentityDAOImpl implements IdentityDAO {
                 .uniqueResult();
     }
 
+    @Override
+    public Identity getbyUserId(long userId) {
+        Session currentSession = sessionFactory.getCurrentSession();
+        return (Identity) currentSession.createCriteria(Identity.class)
+                .add(Restrictions.eq("userId", String.valueOf(userId)))
+                .uniqueResult();
+    }
+
 }
